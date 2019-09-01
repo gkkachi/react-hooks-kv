@@ -32,7 +32,7 @@ var reducer = function (state, action) {
     }
     return newState;
 };
-var myUseReducer = function () {
+exports.useKV = function () {
     var _a = react_1.default.useReducer(function (state, action) { return reducer(state, action); }, {}), nextState = _a[0], dispatch = _a[1];
     var add = function (key, value) {
         return dispatch({ type: ActionType.ADD, key: key, value: value });
@@ -40,4 +40,3 @@ var myUseReducer = function () {
     var del = function (key) { return dispatch({ type: ActionType.DELETE, key: key }); };
     return [nextState, add, del];
 };
-exports.default = myUseReducer;
